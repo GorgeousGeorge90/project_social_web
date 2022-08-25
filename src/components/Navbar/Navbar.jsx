@@ -1,13 +1,17 @@
 import styles from './Navbar.module.css'
+import {Link} from "react-router-dom";
+
+
 
 const Navbar = ()=> {
     return (
         <nav>
             <ul className={styles.menu}>
-                <li>1</li>
-                <li>2</li>
-                <li>3</li>
-                <li>4</li>
+                <li><Link to='/profile'>Profile</Link></li>
+                <li><Link to='/dialogs'>Dialogs</Link></li>
+                <li><Link to='/news'>News</Link></li>
+                <li><Link to='/music'>Music</Link></li>
+                <li><Link to='/settings'>Settings</Link></li>
             </ul>
         </nav>
     )
