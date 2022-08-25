@@ -1,5 +1,5 @@
 import styles from './Navbar.module.css'
-import {Link} from "react-router-dom";
+import CustomLink from "../common/CustomLink/CustomLink";
 
 
 
@@ -7,11 +7,11 @@ const Navbar = ()=> {
     return (
         <nav>
             <ul className={styles.menu}>
-                <li><Link to='/profile'>Profile</Link></li>
-                <li><Link to='/dialogs'>Dialogs</Link></li>
-                <li><Link to='/news'>News</Link></li>
-                <li><Link to='/music'>Music</Link></li>
-                <li><Link to='/settings'>Settings</Link></li>
+                <li><CustomLink to='/profile'>Profile</CustomLink></li>
+                <li><CustomLink to='/dialogs'>Dialogs</CustomLink></li>
+                <li><CustomLink to='/news'>News</CustomLink></li>
+                <li><CustomLink to='/music'>Music</CustomLink></li>
+                <li><CustomLink to='/settings'>Settings</CustomLink></li>
             </ul>
         </nav>
     )
