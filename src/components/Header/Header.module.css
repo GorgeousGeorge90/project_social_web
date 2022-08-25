@@ -1,0 +1,23 @@
+header {
+    background-color: darkslateblue;
+    grid-area: header;
+    display: flex;
+}
+
+.logo {
+
+}
+
+.logo img {
+    height: 150px;
+    padding-top: 25px;
+    padding-left: 50px;
+}
+
+.title {
+    font-family: fantasy;
+    font-weight: bolder;
+    color: whitesmoke;
+    align-items: center;
+    padding-left: 100px;
+}
