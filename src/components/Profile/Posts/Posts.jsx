@@ -1,14 +1,11 @@
 import styles from './Posts.module.css'
+import Post from "./Post /Post";
 
-const Posts = ()=>{
-    const posts = [
-        {id:1, text: 'This is my first post!'},
-        {id:2, text: 'Hello to everyone!'},
-        {id:3, text: 'I am really want to become a React Developer!'}
-    ]
+const Posts = (props)=>{
+    let posts = props.posts
     return (
         <div className={styles.posts}>
-            {posts.map(post=> <p>{post.text}</p>)}
+            {posts.map(post=> <Post post={post}/>)}
         </div>
     )
 }

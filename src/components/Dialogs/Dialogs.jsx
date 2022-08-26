@@ -1,9 +1,10 @@
 import styles from './Dialogs.module.css'
+import Messages from "./Messages/Messages";
 
-const Dialogs = ()=> {
+const Dialogs = (props)=> {
     return (
         <div className={styles.content}>
-            Dialogs
+            <Messages messages={props.dialogsPage.messages}/>
         </div>
     )
 }
