@@ -1,7 +1,8 @@
 import styles from './Messages.module.css'
+import {useSelector} from "react-redux";
 
-const Messages = (props)=> {
-    let messages = props.messages
+const Messages = ()=> {
+    let messages = useSelector(state=>state.dialogsPage.messages)
     debugger
     return (
         <div className={styles.content}>
