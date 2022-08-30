@@ -8,6 +8,8 @@ import Dialogs from "./components/Dialogs/Dialogs";
 import News from "./components/News/News";
 import Music from "./components/Music/Music";
 import Settings from "./components/Settings/Settings";
+import {DialogsWrapper} from "./redux/dialogsReducer";
+import Users from './components/Users/Users';
 
 
 const App = ()=>{
@@ -17,7 +19,8 @@ const App = ()=>{
       <Navbar/>
         <Routes>
             <Route path='/profile' element={<Profile/>} />
-            <Route path='/dialogs' element={<Dialogs/>} />
+            <Route path='/dialogs' element={<DialogsWrapper/>} />
+            <Route path='/users' element={<Users/>} />
             <Route path='/news' element={<News/>} />
             <Route path='/music' element={<Music/>} />
             <Route path='/settings' element={<Settings/>} />

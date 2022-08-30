@@ -1,3 +1,6 @@
+import {connect} from 'react-redux';
+import Dialogs from '../components/Dialogs/Dialogs';
+
 const ADD_MESSAGE = 'ADD MESSAGE';
 const UPDATE_MESSAGE = 'UPDATE MESSAGE';
 const DELETE_MESSAGE = 'DELETE MESSAGE';
@@ -40,3 +43,24 @@ export const dialogsReducer = (state=initialState,action) => {
         }
     }
 }
+
+let updateAC = text =>({type: UPDATE_MESSAGE, payload: text})
+let addAC = () =>({type: ADD_MESSAGE })
+
+
+const mapStateToProps = state => ({
+    messages: state.dialogsPage.messages,
+    newMessage: state.dialogsPage.newMessage,
+})
+
+const mapDispatchToProps = dispatch => ({
+    updateNewMessage: text=>{
+        dispatch(updateAC(text))
+    },
+    addNewMessage: ()=>{
+        dispatch(addAC())
+    }
+})
+
+
+export  const DialogsWrapper = connect(mapStateToProps,mapDispatchToProps)(Dialogs)

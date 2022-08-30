@@ -3,7 +3,6 @@ import {useSelector} from "react-redux";
 
 const Messages = ()=> {
     let messages = useSelector(state=>state.dialogsPage.messages)
-    debugger
     return (
         <div className={styles.content}>
             {messages.map(message =>

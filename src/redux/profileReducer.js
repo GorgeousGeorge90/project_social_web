@@ -1,5 +1,5 @@
-const ADD_POST = 'ADD POST';
-const UPDATE_POST = 'UPDATE POST';
+export const ADD_POST = 'ADD POST';
+export const UPDATE_POST = 'UPDATE POST';
 const DELETE_POST = 'DELETE POST';
 
 let initialState = {
@@ -23,16 +23,16 @@ export const profileReducer = (state=initialState,action) =>{
                 const newPost = {
                     id: state.posts.length,
                     text: state.newPostText,
+                    likes: 8,
                         }
                     return {
                         ...state,
-                        posts:[...action.posts, newPost]
+                        posts:[...state.posts, newPost]
                 }
             }
             default: {
                 return state
             }
     }
-
 
 }

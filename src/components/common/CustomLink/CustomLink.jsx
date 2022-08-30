@@ -1,4 +1,5 @@
 import {Link, useMatch } from 'react-router-dom'
+import styles from './CustomLink.module.css'
 
 
 const CustomLink = ({children, to, ...props})=>{
@@ -9,7 +10,8 @@ const CustomLink = ({children, to, ...props})=>{
             props={props}
             style={{
                 color: match ? 'red':'white',
-            }}>
+            }}
+            className={styles.link}>
             {children}
         </Link>
             </>)

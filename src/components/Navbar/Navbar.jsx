@@ -9,6 +9,7 @@ const Navbar = ()=> {
             <ul className={styles.menu}>
                 <li><CustomLink to='/profile'>Profile</CustomLink></li>
                 <li><CustomLink to='/dialogs'>Dialogs</CustomLink></li>
+                <li><CustomLink to='/users'>Users</CustomLink></li>
                 <li><CustomLink to='/news'>News</CustomLink></li>
                 <li><CustomLink to='/music'>Music</CustomLink></li>
                 <li><CustomLink to='/settings'>Settings</CustomLink></li>

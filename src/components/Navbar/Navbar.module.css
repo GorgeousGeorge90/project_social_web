@@ -1,8 +1,15 @@
 nav {
     background-color: darkslateblue;
     grid-area: nav;
+    display: flex;
+    justify-content: center;
 }
 
 .menu {
+    list-style: none;
+    padding: 0;
+}
 
+.menu li {
+    padding-top: 10px;
 }
