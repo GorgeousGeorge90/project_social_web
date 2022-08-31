@@ -1,14 +1,13 @@
+import {connect} from 'react-redux';
+import Users from './../components/Users/Users'
+
 const FOLLOW = 'FOLLOW'
 const UNFOLLOW = 'UNFOLLOW'
 const SET_USERS = 'SET_USERS'
 
 
 const initialState = {
-    users: [
-        {id:1, name: 'Egorka', status: 'I am so strong!', photos: { small: null, large: null }, followed: true },
-        {id:2, name: 'Kate', status: 'I am so hot!', photos: { small: null, large: null }, followed: false },
-        {id:3, name: 'Masha', status: 'I am going to become a pilot!', photos: { small: null, large: null }, followed: true },
-    ]
+    users: [],
 }
 
 const usersReducer = (state=initialState, action)=>{
@@ -46,4 +45,16 @@ const usersReducer = (state=initialState, action)=>{
     }
 }
 
+let mapStateToProps = state => ({
+    users: state.usersPage.users
+})
+
+let mapDispatchToProps = dispatch => ({
+    setUsers: users=> {
+        dispatch({type: SET_USERS, payload: users})
+    }
+})
+
 export default usersReducer
+
+export const UsersWrapper = connect(mapStateToProps, mapDispatchToProps)(Users)

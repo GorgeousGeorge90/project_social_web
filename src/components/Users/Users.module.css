@@ -1,3 +1,19 @@
 .wrapper {
-    padding-left: 20px;
+    padding-left: 50px;
+}
+
+.item {
+    display: flex;
+    margin-top: 50px;
+}
+
+.ava img {
+    height: 150px;
+}
+
+.description {
+    font-family: "Century Gothic";
+    font-weight: bolder;
+    color: cornflowerblue;
+    padding-left: 50px;
 }
