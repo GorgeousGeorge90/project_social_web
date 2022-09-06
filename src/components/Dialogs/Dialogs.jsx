@@ -1,56 +1,39 @@
 import styles from './Dialogs.module.css'
 import Messages from './Messages/Messages';
 import DialogsItem from './DialogsItem/DialogsItem'
-import {useFormik} from 'formik';
+import {useDispatch, useSelector} from "react-redux";
+import {useNavigate} from 'react-router-dom'
 import {useEffect} from "react";
+import {Form, isRequired} from '@altiore/form'
+import {ADD_MESSAGE} from "../../redux/dialogs/dialogsReducer";
+import {Field} from "../common/AltiorFrom/AltiorFrom";
 
-const Dialogs = (props)=> {
-    const {messages,newMessage, addNewMessage, updateNewMessage} = props
 
-    const initialValues = {
-        message:''
-    }
 
-    let  onSubmit = values => {
-        console.log(values)
-        addNewMessage()
-    }
 
-    const validate = values => {
-        let errors = {}
-
-        if (!values.message) {
-            errors.message = 'Required'
+const Dialogs = ()=> {
+    const isAuth = useSelector(state=>state.auth.isAuth)
+    const dispatch = useDispatch()
+    const navigate = useNavigate()
+    useEffect(()=>{
+        if (isAuth === false) {
+            navigate('/login')
         }
+    },[isAuth])
 
-        return errors
+    const handleSubmit = values => {
+        dispatch({type: ADD_MESSAGE, payload: values.message})
     }
-
-    const formik = useFormik({
-        initialValues,
-        onSubmit,
-        validate,
-    })
-
-    // useEffect(value=>{
-    //     let newMess = formik.values.message
-    //     updateNewMessage(newMess)
-    // },[value])
-
 
     return (
         <div className={styles.content}>
             <DialogsItem/>
             <Messages/>
             <div>
-                <form onSubmit={formik.handleSubmit}>
-                    <textarea
-                        name='message'
-                        onChange={formik.handleChange}
-                        value={formik.values.message}
-                    />
-                    <button type='submit'>Send</button>
-                </form>
+              <Form onSubmit={handleSubmit}>
+                  <Field name={"message"} validate={isRequired()}/>
+                  <button type={"submit"}>Send</button>
+              </Form>
             </div>
         </div>
     )

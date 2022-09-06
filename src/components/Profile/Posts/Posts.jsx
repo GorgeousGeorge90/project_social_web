@@ -2,10 +2,10 @@ import React, {useEffect} from 'react';
 import styles from './Posts.module.css'
 import Post from "./Post /Post";
 import {useDispatch, useSelector} from "react-redux";
-import {ADD_POST, UPDATE_POST} from "../../../redux/profileReducer";
+import {ADD_POST, UPDATE_POST} from "../../../redux/profile/profileReducer";
 import {useForm} from 'react-hook-form';
 
-const Posts = ()=>{
+const Posts = (props)=>{
     let posts = useSelector(state=> state.profilePage.posts)
     let newPostText = useSelector(state=>state.profilePage.newPostText)
     const dispatch = useDispatch()
@@ -48,7 +48,7 @@ const Posts = ()=>{
                     </form>
                 </div>
             <div className={styles.posts}>
-                {posts.map(post=> <Post post={post}/>)}
+                {posts.map(post=> <Post {...props} post={post}/>)}
             </div>
         </>)
 }

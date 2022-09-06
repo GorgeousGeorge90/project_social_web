@@ -19,3 +19,12 @@ header {
     align-items: center;
     padding-left: 100px;
 }
+
+.login {
+    flex-grow: 1;
+}
+
+.login p {
+    float: right;
+    margin: 50px 50px 0 0;
+}

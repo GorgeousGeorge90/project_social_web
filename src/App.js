@@ -1,15 +1,15 @@
-import logo from './logo.svg';
 import './App.css';
 import Header from "./components/Header/Header";
 import Navbar from "./components/Navbar/Navbar";
-import Profile from "./components/Profile/Profile";
 import {Route, Routes} from "react-router-dom";
-import Dialogs from "./components/Dialogs/Dialogs";
-import News from "./components/News/News";
-import Music from "./components/Music/Music";
-import Settings from "./components/Settings/Settings";
-import {DialogsWrapper} from "./redux/dialogsReducer";
-import {UsersWrapper} from './redux/usersReducer';
+import News from './components/News/News';
+import Music from './components/Music/Music';
+import Settings from './components/Settings/Settings';
+import {UsersWrapper} from './components/Users/UsersWrapper';
+import {ProfileWrapper} from './components/Profile/ProfileContainer';
+import Login from './components/Login/Login';
+import Dialogs from './components/Dialogs/Dialogs';
+
 
 
 const App = ()=>{
@@ -18,8 +18,9 @@ const App = ()=>{
       <Header/>
       <Navbar/>
         <Routes>
-            <Route path='/profile' element={<Profile/>} />
-            <Route path='/dialogs' element={<DialogsWrapper/>} />
+            <Route path='/login' element={<Login/>} />
+            <Route path='/profile/:userId' element={<ProfileWrapper/>} />
+            <Route path='/dialogs' element={<Dialogs/>} />
             <Route path='/users' element={<UsersWrapper/>} />
             <Route path='/news' element={<News/>} />
             <Route path='/music' element={<Music/>} />
