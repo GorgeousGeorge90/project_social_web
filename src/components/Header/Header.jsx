@@ -1,18 +1,16 @@
 import styles from './Header.module.css'
 import logo from './../../assets/img/logo.png'
-import {useDispatch, useSelector} from 'react-redux';
-import {useEffect} from 'react';
-import {getUserData} from './../../redux/auth/auth.actions'
+import {getUserData, logoutUser} from './../../redux/auth/auth.actions'
+import {connect} from 'react-redux'
+import {useEffect} from "react";
 
 
-const Header  = () => {
-    const isAuth = useSelector(state=> state.auth.isAuth)
-
-    const dispatch = useDispatch();
+const Header  = (props) => {
+    const {isAuth, logoutUser, login, getUserData} = props
 
     useEffect(()=>{
-        dispatch(getUserData())
-    },[isAuth])
+        getUserData()
+    }, [isAuth])
 
     return  (
         <header>
@@ -24,10 +22,22 @@ const Header  = () => {
                 <p>Just for fun!</p>
             </div>
             <div className={styles.login}>
-                {isAuth ? <p>LogOUT</p> : <p>LogIN</p>}
+                {isAuth ? <p>
+                    {login}
+                    <button onClick={logoutUser}>LogOut</button>
+                </p> :
+                    <p>
+                        not authorised
+                    </p>}
             </div>
         </header>
     )
 }
 
-export default Header
+const mapStateToProps = state =>({
+    isAuth: state.auth.isAuth,
+    login: state.auth.login
+})
+
+export default connect(mapStateToProps, {getUserData, logoutUser})(Header)
+

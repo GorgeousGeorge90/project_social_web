@@ -6,17 +6,15 @@ import {useEffect} from 'react';
 
 
 
+
 const ProfileContainer = (props)=>{
 
-    let {userId} = useParams()
+    // const {userId} = useParams()
 
-    if (!userId) {
-        userId = 2
-    }
 
     useEffect(()=>{
-        props.setUserInfo(userId)
-    },[userId])
+        props.setUserInfo()
+    },[props])
 
     return <Profile {...props} />
 }

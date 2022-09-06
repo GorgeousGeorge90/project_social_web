@@ -7,11 +7,13 @@ import {deletePost, setIsFetching, setProfile, setUserInfo, updatePost} from '..
 
 
 
+
 class ProfileContainer extends React.Component {
 
     componentDidMount() {
         this.props.setUserInfo()
-    }
+            }
+
 
     render() {
         return <Profile {...this.props} />

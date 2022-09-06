@@ -23,6 +23,8 @@ export const loginUser = (email, login, rememberMe) => {
             .then(response => {
                 if (response.data.resultCode === 0) {
                     dispatch(getUserData())
+                } else {
+                    alert(response.data.messages)
                 }
             })
     }

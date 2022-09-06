@@ -9,12 +9,11 @@ export const deletePost = id =>({type: DELETE_POST, payload:id})
 export const setIsFetching = value =>({type: SET_IS_FETCHING, payload: value})
 
 
-export const setUserInfo = userId => {
+export const setUserInfo = () => {
     return dispatch => {
         dispatch(setIsFetching(true))
-        profileApi.getUser(userId)
+        profileApi.getUser(2)
             .then(response=> {
-                debugger
                 dispatch(setProfile(response.data))
                 dispatch(setIsFetching(false))
             })

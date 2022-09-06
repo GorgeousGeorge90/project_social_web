@@ -36,7 +36,7 @@ export const usersApi = {
 }
 
 export const profileApi = {
-    getUser(userId) {
+    getUser(userId=2) {
         return instance.get(`/profile/${userId}`)
     }
 }

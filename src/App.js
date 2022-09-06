@@ -6,7 +6,7 @@ import News from './components/News/News';
 import Music from './components/Music/Music';
 import Settings from './components/Settings/Settings';
 import {UsersWrapper} from './components/Users/UsersWrapper';
-import {ProfileWrapper} from './components/Profile/ProfileContainer';
+import {ProfileWrapper} from './components/Profile/ProfileWrapper';
 import Login from './components/Login/Login';
 import Dialogs from './components/Dialogs/Dialogs';
 
@@ -19,7 +19,7 @@ const App = ()=>{
       <Navbar/>
         <Routes>
             <Route path='/login' element={<Login/>} />
-            <Route path='/profile/:userId' element={<ProfileWrapper/>} />
+            <Route path='/profile' element={<ProfileWrapper/>} />
             <Route path='/dialogs' element={<Dialogs/>} />
             <Route path='/users' element={<UsersWrapper/>} />
             <Route path='/news' element={<News/>} />

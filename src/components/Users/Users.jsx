@@ -19,11 +19,15 @@ const Users = (props)=> {
         <div className={styles.wrapper}>
             {pages.map(p=><span className={props.currentPage === p && styles.selectedPage} onClick={()=>{props.onPageChange(p)}}>{p}</span>)}
             {props.users.map(user => <div key={user.id} className={styles.item}>
+
                 <div className={styles.ava}>
+                    <NavLink to={`/profile/${user.id}`}>
                     {user.photos.small != null ? <img src={user.photos.small} alt="ava"/> :
                         <img src={users_ava} alt="ava"/>
                     }
+                    </NavLink>
                 </div>
+
                 <div className={styles.description}>
                     <p>Name:{user.name}</p>
                     <p>Status:{user.status}</p>
