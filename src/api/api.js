@@ -36,10 +36,25 @@ export const usersApi = {
 }
 
 export const profileApi = {
-    getUser(userId=2) {
+
+    getUser(userId = 22886) {
         return instance.get(`/profile/${userId}`)
-    }
+    },
+
+    getStatus(userId = 22886) {
+        return instance.get(`/profile/status/${userId}`)
+    },
+
+    upgradeStatus(status) {
+        return instance.put(`profile/status`,{status})
+    },
 }
+
+
+
+
+
+
 
 export const authApi = {
 
@@ -55,4 +70,7 @@ export const authApi = {
         return instance.delete(`/auth/login`)
     }
 }
+
+
+
 

@@ -5,6 +5,7 @@ import {useSelector} from "react-redux";
 import {useNavigate} from "react-router-dom";
 import {useEffect} from "react";
 import Preloader from "../common/Preloader/Preloader";
+import ProfileStatus from "./ProfileStatus/ProfileStatus";
 
 
 
@@ -24,6 +25,7 @@ const Profile = (props) => {
     return (
         <div className={styles.content}>
             <ProfileInfo profile={props.profile}/>
+            <ProfileStatus status={props.status} updateStatus={props.updateStatus}/>
             <Posts profile={props.profile}/>
         </div>
     )

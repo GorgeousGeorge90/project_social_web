@@ -9,10 +9,7 @@ const ProfileInfo = (props)=> {
     }
 
     const {aboutMe, fullName, contacts, userId, photos } = props.profile
-    debugger
-    // const person = [
-    //     {id:1 , name: 'Egor', age: 31, job: 'ReactDev', city: 'Moscow'}
-    // ]
+
     return (
         <div className={styles.main}>
             <div className={styles.avatar}>

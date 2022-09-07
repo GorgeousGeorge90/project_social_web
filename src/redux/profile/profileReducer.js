@@ -3,6 +3,7 @@ export const UPDATE_POST = 'UPDATE POST'
 export const DELETE_POST = 'DELETE POST'
 export const SET_PROFILE = 'SET_PROFILE'
 export const SET_IS_FETCHING = 'SET_IS_FETCHING'
+export const SET_STATUS = 'SET_STATUS'
 
 let initialState = {
         posts: [
@@ -13,6 +14,7 @@ let initialState = {
         newPostText: '',
         profile: null,
         isFetching: false,
+        status: '',
 }
  export const profileReducer = (state=initialState,action) =>{
         switch(action.type) {
@@ -46,6 +48,14 @@ let initialState = {
                     ...state,
                     isFetching: action.payload,
                 }
+            }
+
+            case SET_STATUS: {
+                return {
+                    ...state,
+                    status: action.payload,
+                }
+
             }
 
             default: {

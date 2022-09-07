@@ -1,7 +1,15 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import Profile from "./Profile";
-import {deletePost, setIsFetching, setProfile, setUserInfo, updatePost} from '../../redux/profile/profile.actions';
+import {
+    deletePost,
+    getUserStatus,
+    setIsFetching,
+    setProfile,
+    setUserInfo,
+    updatePost, updateStatus
+} from '../../redux/profile/profile.actions';
+import {getIsFetchingProfile, getPosts, getProfile, getStatus} from "../../selectors/profile.selectors";
 
 
 
@@ -12,6 +20,7 @@ class ProfileContainer extends React.Component {
 
     componentDidMount() {
         this.props.setUserInfo()
+        this.props.getUserStatus()
             }
 
 
@@ -21,11 +30,13 @@ class ProfileContainer extends React.Component {
 }
 
 let mapStateToProps = state => ({
-    profile: state.profilePage.profile,
-    posts: state.profilePage.posts,
-    isFetching: state.profilePage.isFetching,
+    profile: getProfile(state),
+    posts: getPosts(state),
+    isFetching: getIsFetchingProfile(state),
+    status: getStatus(state)
 })
 
 
 export const ProfileWrapper = connect(mapStateToProps,
-    {setProfile, updatePost, deletePost, setIsFetching, setUserInfo})(ProfileContainer)
+    {setProfile, updatePost, deletePost, setIsFetching,
+        setUserInfo, getUserStatus, updateStatus})(ProfileContainer)
