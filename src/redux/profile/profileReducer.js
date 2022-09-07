@@ -1,38 +1,47 @@
 export const ADD_POST = 'ADD POST'
-export const UPDATE_POST = 'UPDATE POST'
 export const DELETE_POST = 'DELETE POST'
 export const SET_PROFILE = 'SET_PROFILE'
 export const SET_IS_FETCHING = 'SET_IS_FETCHING'
 export const SET_STATUS = 'SET_STATUS'
+export const ADD_LIKE = 'ADD_LIKE'
 
 let initialState = {
-        posts: [
-            {id:1, text: 'This is my first post!', likes:2},
-            {id:2, text: 'Hello to everyone!', likes:8},
-            {id:3, text: 'I am really want to become a React Developer!',likes:4}
-        ],
-        newPostText: '',
+        posts: [],
         profile: null,
         isFetching: false,
         status: '',
 }
  export const profileReducer = (state=initialState,action) =>{
         switch(action.type) {
-            case UPDATE_POST: {
-                return {
-                    ...state,
-                    newPostText: action.payload,
-                }
-            }
             case ADD_POST: {
                 const newPost = {
                     id: state.posts.length,
-                    text: state.newPostText,
-                    likes: 8,
+                    text: action.payload,
+                    likes:0,
                         }
                     return {
                         ...state,
                         posts:[...state.posts, newPost]
+                }
+            }
+
+            case ADD_LIKE: {
+                return {
+                    ...state,
+                    posts: state.posts.map(post => {
+                        if (post.id === action.payload) {
+                            return {...post, likes: post.likes+=1}
+                        } else {
+                                return post
+                            }
+                        })
+                    }
+                }
+
+            case DELETE_POST: {
+                return {
+                    ...state,
+                    posts: state.posts.filter(post=> post.id !== action.payload)
                 }
             }
 

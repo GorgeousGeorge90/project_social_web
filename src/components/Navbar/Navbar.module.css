@@ -3,6 +3,7 @@ nav {
     grid-area: nav;
     display: flex;
     justify-content: center;
+    border-radius: 10px;
 }
 
 .menu {

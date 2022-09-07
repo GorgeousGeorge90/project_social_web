@@ -38,5 +38,5 @@ let mapStateToProps = state => ({
 
 
 export const ProfileWrapper = connect(mapStateToProps,
-    {setProfile, updatePost, deletePost, setIsFetching,
+    {setProfile, deletePost, setIsFetching,
         setUserInfo, getUserStatus, updateStatus})(ProfileContainer)

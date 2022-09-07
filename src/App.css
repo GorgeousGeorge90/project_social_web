@@ -2,12 +2,17 @@
   display: grid;
   grid-gap: 10px;
   grid-template-areas:
-    'header header'
-     'nav content';
+    'header header header'
+     'nav content sidebar';
   grid-template-rows:   150px 1fr;
-  grid-template-columns: 200px 1fr;
+  grid-template-columns: 200px 1fr 200px;
   width: 1200px;
   height: 100vh;
   margin: 0 auto;
+}
 
+.sidebar {
+  grid-area: sidebar;
+  background-color: darkslateblue;
+  border-radius: 10px;
 }

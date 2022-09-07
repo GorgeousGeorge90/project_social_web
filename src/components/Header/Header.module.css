@@ -2,6 +2,9 @@ header {
     background-color: darkslateblue;
     grid-area: header;
     display: flex;
+    font-family: 'Roboto Mono', monospace;
+    font-size: 1.1em;
+    border-radius: 10px;
 }
 
 .logo {
@@ -26,5 +29,5 @@ header {
 
 .login p {
     float: right;
-    margin: 50px 50px 0 0;
+    margin: 50px 20px 0 0;
 }

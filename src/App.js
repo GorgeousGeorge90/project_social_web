@@ -26,6 +26,7 @@ const App = ()=>{
             <Route path='/music' element={<Music/>} />
             <Route path='/settings' element={<Settings/>} />
         </Routes>
+        <div className='sidebar'/>
     </div>
   )
 }
