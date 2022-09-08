@@ -1,9 +1,9 @@
-export const ADD_POST = 'ADD POST'
-export const DELETE_POST = 'DELETE POST'
-export const SET_PROFILE = 'SET_PROFILE'
-export const SET_IS_FETCHING = 'SET_IS_FETCHING'
-export const SET_STATUS = 'SET_STATUS'
-export const ADD_LIKE = 'ADD_LIKE'
+export const ADD_POST = 'profile/ADD POST'
+export const DELETE_POST = 'profile/DELETE POST'
+export const SET_PROFILE = 'profile/SET_PROFILE'
+export const SET_IS_FETCHING = 'profile/SET_IS_FETCHING'
+export const SET_STATUS = 'profile/SET_STATUS'
+export const ADD_LIKE = 'profile/ADD_LIKE'
 
 let initialState = {
         posts: [],

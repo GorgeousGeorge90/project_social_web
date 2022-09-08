@@ -11,34 +11,27 @@ export const setStatus = text =>({type: SET_STATUS, payload: text})
 
 
 export const setUserInfo = () => {
-    return dispatch => {
+    return async dispatch=> {
         dispatch(setIsFetching(true))
-        profileApi.getUser(22886)
-            .then(response=> {
+        const response = await profileApi.getUser(22886)
                 dispatch(setProfile(response.data))
                 dispatch(setIsFetching(false))
-            })
     }
 }
 
 
 export const getUserStatus = () => {
-    return dispatch => {
-        profileApi.getStatus(22886)
-            .then(response => {
+    return async dispatch => {
+        const response = await profileApi.getStatus(22886)
                 dispatch(setStatus(response.data))
-            })
     }
 }
 
 export const updateStatus = text =>{
-    return dispatch => {
-        profileApi.upgradeStatus(text)
-            .then(response => {
+    return async dispatch => {
+       const response = await profileApi.upgradeStatus(text)
                 if ( response.data.resultCode === 0 ) {
                     dispatch(setStatus(text))
                 }
-            })
-
     }
 }

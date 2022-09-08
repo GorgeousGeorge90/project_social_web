@@ -1,16 +1,17 @@
-export const FOLLOW = 'FOLLOW'
-export const UNFOLLOW = 'UNFOLLOW'
-export const SET_USERS = 'SET_USERS'
-export const SET_CURRENT_PAGE = 'SET_CURRENT_PAGE'
-export const SET_TOTAL_USERS = 'SET_TOTAL_USERS'
-export const IS_FETCHING = 'IS_FETCHING'
+export const FOLLOW = 'users/FOLLOW'
+export const UNFOLLOW = 'users/UNFOLLOW'
+export const SET_USERS = 'users/SET_USERS'
+export const SET_CURRENT_PAGE = 'users/SET_CURRENT_PAGE'
+export const SET_TOTAL_USERS = 'users/SET_TOTAL_USERS'
+export const IS_FETCHING = 'users/IS_FETCHING'
 
 
 const initialState = {
     users: [],
     pageSize: 15,
-    totalUsersCount: 0,
+    totalItemsCount: 0,
     currentPage: 1,
+    portionSize: 10,
     isFetching: false,
 }
 

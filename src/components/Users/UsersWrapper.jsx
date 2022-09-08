@@ -12,7 +12,14 @@ import {
     setUnfollow,
     setUsers
 } from '../../redux/users/users.actions';
-import {getAllUsers, getCurrentPage, getIsFetching, getPageSize, getTotalCount} from "../../selectors/users.selectors";
+import {
+    getAllUsers,
+    getCurrentPage,
+    getIsFetching,
+    getPageSize,
+    getPortionSize,
+    getTotalCount
+} from "../../selectors/users.selectors";
 
 
 
@@ -40,10 +47,11 @@ class UsersApi extends React.Component {
 
 let mapStateToProps = state => ({
     users: getAllUsers(state),
-    totalUsersCount: getTotalCount(state),
+    totalItemsCount: getTotalCount(state),
     pageSize: getPageSize(state),
     currentPage: getCurrentPage(state),
     isFetching: getIsFetching(state),
+    portionSize: getPortionSize(state),
 })
 
 
