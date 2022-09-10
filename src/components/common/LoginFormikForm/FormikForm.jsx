@@ -1,5 +1,5 @@
 import {useFormik} from "formik";
-import {LoginSchema} from "../../../validations/LoginValidations";
+import {LoginSchema} from "../../../helpers/validations/LoginValidations";
 import styles from "../../Login/Login.module.css";
 
 

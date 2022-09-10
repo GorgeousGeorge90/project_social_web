@@ -1,9 +1,10 @@
 export const ADD_POST = 'profile/ADD POST'
 export const DELETE_POST = 'profile/DELETE POST'
-export const SET_PROFILE = 'profile/SET_PROFILE'
-export const SET_IS_FETCHING = 'profile/SET_IS_FETCHING'
-export const SET_STATUS = 'profile/SET_STATUS'
-export const ADD_LIKE = 'profile/ADD_LIKE'
+export const SET_PROFILE = 'profile/SET PROFILE'
+export const SET_IS_FETCHING = 'profile/SET IS FETCHING'
+export const SET_STATUS = 'profile/SET STATUS'
+export const ADD_LIKE = 'profile/ADD LIKE'
+export const SET_POSTS = 'profile/SET POSTS'
 
 let initialState = {
         posts: [],
@@ -15,7 +16,7 @@ let initialState = {
         switch(action.type) {
             case ADD_POST: {
                 const newPost = {
-                    id: state.posts.length,
+                    id: 0,
                     text: action.payload,
                     likes:0,
                         }
@@ -63,6 +64,14 @@ let initialState = {
                 return {
                     ...state,
                     status: action.payload,
+                }
+
+            }
+
+            case SET_POSTS: {
+                return {
+                    ...state,
+                    posts: action.payload,
                 }
 
             }

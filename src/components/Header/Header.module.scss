@@ -1,0 +1,60 @@
+header {
+    background-color: var(--main-bg-color);
+    grid-area: header;
+    display: flex;
+    font-family: 'My Soul';
+    font-size: 1.3em;
+    border-radius: 10px;
+}
+
+
+.logo img {
+    height: 150px;
+    transform: scale(0.8);
+    padding-left: 50px;
+}
+
+.title {
+    color: whitesmoke;
+    align-items: center;
+    padding-left: 50px;
+
+    h1 {
+        margin: 20px 0 0 0;
+    }
+
+    p {
+        margin: 0 0 20px 0;
+    }
+
+}
+
+
+.login {
+    flex-grow: 1;
+    font-family: fantasy;
+    font-weight: bolder;
+    color: white;
+    font-size: 1.2em;
+
+    p {
+        float: right;
+        margin: 50px 20px 0 0;
+    }
+
+    span {
+        padding-right: 20px;
+    }
+
+    button {
+        border: none;
+        border-radius: 5px;
+        padding: 5px;
+        background-color: lightskyblue;
+        color: white;
+        font-weight: bolder;
+    }
+
+}
+
+

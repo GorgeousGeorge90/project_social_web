@@ -1,8 +1,8 @@
 import styles from './Post.module.css'
-import ava from './../../../../assets/img/ava.jpeg'
 import {useDispatch} from 'react-redux';
 import {addLike, deletePost} from '../../../../redux/profile/profile.actions';
-import {ADD_LIKE} from "../../../../redux/profile/profileReducer";
+import users_ava from './../../../../assets/img/users_ava.png'
+
 
 const Post = (props)=> {
     const post = props.post
@@ -13,7 +13,7 @@ const Post = (props)=> {
     return (<div className={styles.post}>
         <div className={styles.avatar}>
             {props.profile.photos.small ? <img src={props.profile.photos.small} alt="avatar"/> :
-                <img src={ava} alt="avatar"/>}
+                <img src={users_ava} alt="avatar"/>}
         </div>
         <div className={styles.text}>
             <p>{post.text}</p>

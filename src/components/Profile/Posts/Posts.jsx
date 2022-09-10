@@ -2,10 +2,15 @@ import styles from './Posts.module.css'
 import Post from "./Post /Post";
 import {useDispatch, useSelector} from "react-redux";
 import {useForm} from 'react-hook-form';
-import {addPost} from "../../../redux/profile/profile.actions";
+import {addPost, setPosts} from "../../../redux/profile/profile.actions";
+import useLocalStorage from "../../../helpers/useLocalStorage";
 
 const Posts = (props)=>{
+
     let posts = useSelector(state=> state.profilePage.posts)
+
+    // const [value,setValue] = useLocalStorage([], 'posts')
+
     const dispatch = useDispatch()
     const { register, handleSubmit, reset, formState: {errors} } = useForm();
     const onSubmit = values => {

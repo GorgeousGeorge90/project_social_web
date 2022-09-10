@@ -1,5 +1,5 @@
 import styles from './ProfileInfo.module.css'
-import ava from  '../../../assets/img/ava.jpeg'
+import users_ava from './../../../assets/img/users_ava.png'
 import Preloader from "../../common/Preloader/Preloader";
 
 const ProfileInfo = (props)=> {
@@ -13,7 +13,7 @@ const ProfileInfo = (props)=> {
     return (
         <div className={styles.main}>
             <div className={styles.avatar}>
-                {photos.large !== null ? <img src={photos.large} /> : <img  src={ava} />}
+                {photos.large !== null ? <img src={photos.large} /> : <img  src={users_ava} />}
             </div>
             <div className={styles.description}>
                 <p>UserId: <span>{userId}</span></p>
