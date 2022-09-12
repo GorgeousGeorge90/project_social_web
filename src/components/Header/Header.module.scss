@@ -50,11 +50,18 @@ header {
         border: none;
         border-radius: 5px;
         padding: 5px;
-        background-color: lightskyblue;
+        background-color: var(--btn-bg-color);
         color: white;
         font-weight: bolder;
     }
 
+    .toggle {
+        margin: 100px 0 0 200px;
+        padding: 0;
+    }
+
 }
+
+
 
 

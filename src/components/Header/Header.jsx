@@ -3,12 +3,13 @@ import logo1 from './../../assets/img/logo1.png'
 import {getUserData, logoutUser} from './../../redux/auth/auth.actions'
 import {connect} from 'react-redux'
 import {useEffect} from "react";
+import ReactSwitch from "react-switch";
 
 
 
 
-const Header  = (props) => {
-    const {isAuth, logoutUser, login, getUserData} = props
+
+const Header  = ({isAuth, logoutUser, login, getUserData, theme, toggleTheme}) => {
     useEffect(()=>{
         getUserData()
     }, [isAuth])
@@ -30,6 +31,9 @@ const Header  = (props) => {
                     <p>
                         not authorised
                     </p>}
+                <div className={styles.toggle}>
+                    <ReactSwitch checked={theme === 'dark'} onChange={toggleTheme}/>
+                </div>
             </div>
         </header>
     )

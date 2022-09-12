@@ -1,4 +1,4 @@
-import './App.css';
+import './App.scss';
 import Header from "./components/Header/Header";
 import Navbar from "./components/Navbar/Navbar";
 import {Route, Routes} from "react-router-dom";
@@ -13,12 +13,12 @@ import useTheme from './helpers/hooks/useTheme';
 
 
 
+
 const App = ()=>{
-    const {theme,toggleTheme} = useTheme()
+    const {theme, toggleTheme} = useTheme()
     return (
         <div className={`App ${theme}`}>
-            <Header/>
-            <button onClick={toggleTheme}>Click</button>
+            <Header theme={theme} toggleTheme={toggleTheme}/>
             <Navbar/>
             <Routes>
                 <Route path='login' element={<Login/>} />

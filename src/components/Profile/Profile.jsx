@@ -3,9 +3,10 @@ import Posts from "./Posts/Posts";
 import ProfileInfo from "./ProfileInfo/ProfileInfo";
 import {useSelector} from "react-redux";
 import {useNavigate, useParams} from "react-router-dom";
-import {useEffect} from "react";
+import {useEffect} from 'react';
 import Preloader from "../common/Preloader/Preloader";
 import ProfileStatus from "./ProfileStatus/ProfileStatus";
+import logo from './../../assets/img/logo.png'
 
 
 
@@ -25,10 +26,11 @@ const Profile = (props) => {
     if (props.profile === null) return <Preloader/>
     return (
         <div className={styles.content}>
-            <ProfileInfo profile={props.profile}/>
-            <ProfileStatus status={props.status} updateStatus={props.updateStatus}/>
-            {!userId &&
-                <Posts profile={props.profile}/>
+            <ProfileInfo {...props}/>
+            <ProfileStatus {...props}/>
+            {!userId ?
+                <Posts {...props} />:
+                <img src={logo} alt="logo"/>
             }
         </div>
     )

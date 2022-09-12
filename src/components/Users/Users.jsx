@@ -1,4 +1,4 @@
-import styles from './Users.module.css';
+import styles from './Users.module.scss';
 import users_ava from '../../assets/img/users_ava.png';
 import {NavLink} from 'react-router-dom';
 import Paginator from '../common/Paginator /Paginator';
@@ -22,7 +22,7 @@ const Users = (props)=> {
 
                 <div className={styles.description}>
                     <p>Name:{user.name}</p>
-                    <p>Status:{user.status}</p>
+                    <p>Status:{user.status ? user.status: `no status`}</p>
                     {user.followed ?
 
                         <button onClick={() => {

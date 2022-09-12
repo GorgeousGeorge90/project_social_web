@@ -1,0 +1,35 @@
+.App {
+  display: grid;
+  grid-gap: 10px;
+  grid-template-areas:
+    'header header header'
+     'nav content sidebar';
+  grid-template-rows:   150px 1fr;
+  grid-template-columns: 200px 1fr 200px;
+  width: 1200px;
+  height: 100vh;
+  margin: 0 auto;
+
+  &.dark {
+    --main-bg-color: #4B0082;
+    --content-bg-color: #E6E6FA;
+    --desc-bg-color: #F5FFFA;
+    --btn-bg-color:#87CEFA;
+    --about-color:#000080;
+  }
+
+  &.light {
+    --main-bg-color: #87CEFA;
+    --content-bg-color: #FAF0E6;
+    --desc-bg-color:#C0C0C0;
+    --btn-bg-color:#4B0082;
+    --about-color:#663399;
+  }
+
+  .sidebar {
+    grid-area: sidebar;
+    background-color: var(--main-bg-color);
+    border-radius: 10px;
+  }
+}
+

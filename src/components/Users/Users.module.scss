@@ -1,0 +1,43 @@
+.wrapper {
+    padding-left: 50px;
+    grid-area: content;
+    background-color: var(--content-bg-color);
+    border-radius: 10px;
+
+    .item {
+        display: flex;
+        margin-top: 30px;
+    }
+
+    .ava img {
+        height: 120px;
+    }
+
+    .description {
+        font-family: "Century Gothic";
+        font-weight: bolder;
+        color: cornflowerblue;
+        margin-left: 50px;
+        padding-left: 50px;
+        border: none;
+        background-color: var(--desc-bg-color);
+        border-radius: 10px;
+        width: 300px;
+    }
+
+    .selectedPage {
+        font-weight: bolder;
+        color: indigo;
+    }
+
+    button {
+        border: none;
+        border-radius: 5px;
+        padding: 5px;
+        background-color: var(--btn-bg-color);
+        color: white;
+        font-weight: bolder;
+    }
+
+}
+

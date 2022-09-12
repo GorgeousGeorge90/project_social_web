@@ -1,4 +1,4 @@
-import styles from './Post.module.css'
+import styles from './Post.module.scss'
 import {useDispatch} from 'react-redux';
 import {addLike, deletePost} from '../../../../redux/profile/profile.actions';
 import users_ava from './../../../../assets/img/users_ava.png'
@@ -17,11 +17,11 @@ const Post = (props)=> {
         </div>
         <div className={styles.text}>
             <p>{post.text}</p>
-            <p>
+            <div className={styles.other}>
                 <span onClick={() => dispatch(addLike(id))}>&#129505;</span>
                 {post.likes}
-            </p>
-            <span onClick={() => dispatch(deletePost(id))}>&#128465;</span>
+                <span onClick={() => dispatch(deletePost(id))}>&#128465;</span>
+            </div>
         </div>
     </div>)
 }

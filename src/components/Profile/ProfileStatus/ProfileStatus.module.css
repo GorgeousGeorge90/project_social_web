@@ -1,4 +1,11 @@
 .status {
-    font-family: fantasy;
-    margin-left: 20px;
+    font-family: "My Soul";
+    margin-left: 60px;
+    font-size: 1.6em;
+}
+
+.good {
+    font-family: 'My Soul';
+    font-size: 1.6em;
+    padding-left: 60px;
 }

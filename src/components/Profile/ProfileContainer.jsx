@@ -5,12 +5,15 @@ import {
     setIsFetching,
     setProfile,
     setUserInfo,
-    updateStatus
+    updateStatus,
+    addPost,
+    saveNewPhoto,
 } from '../../redux/profile/profile.actions';
 import Profile from './Profile';
 import {useParams} from 'react-router-dom';
 import {useEffect} from 'react';
 import {getIsFetchingProfile, getPosts, getProfile, getStatus} from "../../selectors/profile.selectors";
+
 
 
 
@@ -39,4 +42,4 @@ let mapStateToProps = state => ({
 
 export const ProfileWrapper = connect(mapStateToProps,
     {setProfile, deletePost, setIsFetching,
-        setUserInfo, getUserStatus, updateStatus})(ProfileContainer)
+        setUserInfo, getUserStatus, updateStatus, saveNewPhoto, addPost})(ProfileContainer)

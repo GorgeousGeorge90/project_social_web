@@ -1,0 +1,29 @@
+.title {
+    font-family: fantasy;
+    padding-left: 30px;
+    font-size: 1.2em;
+}
+
+.main {
+
+    form{
+        display: flex;
+    }
+
+    button {
+        border: none;
+        border-radius: 5px;
+        background-color: var(--btn-bg-color);
+        color: white;
+        font-weight: bolder;
+    }
+
+    textarea {
+        width: 200px;
+        height: 40px;
+        resize: none;
+        margin-left: 30px;
+    }
+
+}
+

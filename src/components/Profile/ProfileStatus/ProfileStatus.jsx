@@ -1,10 +1,13 @@
 import styles from './ProfileStatus.module.css'
-import {useState} from 'react';
+import {useEffect, useState} from 'react';
+import {profileApi} from '../../../api/api';
+import {getUserStatus} from "../../../redux/profile/profile.actions";
 
 
 const ProfileStatus = (props) => {
     const [editMode, setEditMode] = useState(false)
     const [status,setStatus] = useState(props.status)
+
 
 
     const activeEditMode = () => {
@@ -19,6 +22,13 @@ const ProfileStatus = (props) => {
 
     const changeMode = (e) => {
         setStatus(e.currentTarget.value)
+    }
+
+    if (props.profile.userId !== 22886) {
+        return (<div className={styles.good}>
+                <p>Have a nice day!</p>
+            </div>
+        )
     }
 
     return (

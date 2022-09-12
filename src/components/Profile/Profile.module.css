@@ -1,4 +1,5 @@
 .content {
-    background-color: whitesmoke;
+    background-color: var(--content-bg-color);
     grid-area: content;
+    border-radius: 10px;
 }

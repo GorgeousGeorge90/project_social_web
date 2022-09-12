@@ -1,6 +1,6 @@
 import {useFormik} from "formik";
 import {LoginSchema} from "../../../helpers/validations/LoginValidations";
-import styles from "../../Login/Login.module.css";
+import styles from '../../Login/Login.module.scss';
 
 
 export const FormikForm = (props)=>{
@@ -59,13 +59,13 @@ export const FormikForm = (props)=>{
             {errors.confirmPassword && touched.confirmPassword  ? <p className={styles.errors}>{errors.confirmPassword}</p>: null}
 
 
-            <p>
+            <p className={styles.checkbox}>
                 <label htmlFor='rememberMe'>remember me</label>
                 <input name={'rememberMe'}
                        type={'checkbox'}
                        value={values.rememberMe}
                        onChange={handleChange}
-                />remember me
+                />
             </p>
 
             <button  type={'submit'}>Submit</button>

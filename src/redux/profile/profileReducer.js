@@ -4,10 +4,10 @@ export const SET_PROFILE = 'profile/SET PROFILE'
 export const SET_IS_FETCHING = 'profile/SET IS FETCHING'
 export const SET_STATUS = 'profile/SET STATUS'
 export const ADD_LIKE = 'profile/ADD LIKE'
-export const SET_POSTS = 'profile/SET POSTS'
+export const SAVE_PHOTO = 'profile/SAVA PHOTO'
 
 let initialState = {
-        posts: [],
+        posts: JSON.parse(localStorage.getItem('posts')) || [],
         profile: null,
         isFetching: false,
         status: '',
@@ -16,7 +16,7 @@ let initialState = {
         switch(action.type) {
             case ADD_POST: {
                 const newPost = {
-                    id: 0,
+                    id: state.posts.length,
                     text: action.payload,
                     likes:0,
                         }
@@ -68,10 +68,13 @@ let initialState = {
 
             }
 
-            case SET_POSTS: {
+            case SAVE_PHOTO: {
                 return {
                     ...state,
-                    posts: action.payload,
+                    profile: {
+                        ...state.profile,
+                        photos: action.payload,
+                    }
                 }
 
             }
