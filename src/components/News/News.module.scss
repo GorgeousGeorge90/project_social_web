@@ -1,0 +1,39 @@
+.content {
+    grid-area: content;
+    background-color: var(--content-bg-color);
+    border-radius: 10px;
+
+    ul {
+        list-style:none;
+        font-family: 'Roboto Mono', monospace;
+        font-weight: bolder;
+        margin: 0;
+        padding: 0 20px 0 20px;
+
+        li {
+            justify-items: center;
+            padding: 5px;
+            margin: 20px 0 20px 0;
+            border: none;
+            border-radius: 10px;
+            background-color: var(--desc-bg-color);
+
+            &:hover {
+                background-color:var(--hover-color);
+            }
+
+            .link {
+                text-decoration: none;
+                color: black;
+                display: flex;
+                align-items: center;
+
+            }
+
+            img {
+                height: 30px;
+                padding: 0 10px 0 10px;
+            }
+        }
+    }
+}

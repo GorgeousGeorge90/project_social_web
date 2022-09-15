@@ -1,25 +1,42 @@
-export const ADD_MESSAGE = 'ADD MESSAGE';
-export const DELETE_MESSAGE = 'DELETE MESSAGE';
+export const ADD_MESSAGE = 'dialogs/ADD MESSAGE';
+export const DELETE_MESSAGE = 'dialogs/DELETE MESSAGE';
+export const SET_FOLLOWERS = 'dialogs/SET FOLLOWERS';
+export const UNFOLLOW_USER = 'dialogs/UNFOLLOW USER';
+export const GET_SELECT = 'dialogs/GET SELECT'
 
 
 let initialState = {
-        messages: [
-            {id:1, text: 'Hello! How are you?'},
-            {id:2, text: 'I am OK!'},
-            {id:3, text: 'I am glad to hear it!'},
-            {id:4, text: 'Nice weather, guys!'},
-        ],
-        dialogs: [
-            {id:1 , name: 'Kate'},
-            {id:2, name: 'Roman'},
-            {id:3, name: 'Alex'},
-            {id:4, name: 'Masha'},
-        ],
+        messages: [],
+        dialogs: [],
+        selected: JSON.parse(localStorage.getItem('selected')) || null,
         newMessage: '',
 }
 
 export const dialogsReducer = (state=initialState,action) => {
     switch (action.type) {
+
+        case SET_FOLLOWERS : {
+            return {
+                ...state,
+                dialogs: action.payload,
+            }
+        }
+
+        case UNFOLLOW_USER: {
+            return {
+                ...state,
+                dialogs: state.dialogs.filter(user => user.id !== action.payload)
+            }
+
+        }
+
+        case GET_SELECT: {
+            return {
+                ...state,
+                selected: action.payload,
+            }
+        }
+
 
         case ADD_MESSAGE: {
             const newMessage = {

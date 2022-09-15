@@ -57,8 +57,6 @@ export const profileApi = {
 }
 
 
-
-
 export const authApi = {
 
     me() {
@@ -71,6 +69,17 @@ export const authApi = {
 
     logout() {
         return instance.delete(`/auth/login`)
+    }
+}
+
+export const newsApi = {
+
+    getNewsAll() {
+        return axios.get('https://api.spaceflightnewsapi.net/v3/articles')
+    },
+
+    getSingleRequest(id) {
+        return axios.get(`https://api.spaceflightnewsapi.net/v3/articles/${id}`)
     }
 }
 

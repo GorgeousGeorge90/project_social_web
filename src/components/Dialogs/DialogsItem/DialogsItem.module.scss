@@ -1,0 +1,36 @@
+.dialogs {
+    display: flex;
+    flex-direction: column;
+    font-family: fantasy;
+    color: dodgerblue;
+    font-weight: bolder;
+    margin: 20px 50px 20px 50px;
+    align-items: center;
+
+    img {
+        height: 100px;
+        width: 100px;
+    }
+
+    p {
+        font-size: 1.2em;
+        border: none;
+        border-radius: 5px;
+        background-color: var(--desc-bg-color);
+        padding: 10px;
+        margin: 0 0 5px 0;
+    }
+
+    span {
+        font-size: 1.5em;
+        padding: 0;
+    }
+
+    .selectedUser {
+        border: 2px solid var(--main-bg-color);
+        border-radius: 50px;
+        align-items: center;
+
+    }
+
+}

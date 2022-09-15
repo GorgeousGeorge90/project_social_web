@@ -1,8 +1,8 @@
 import loader from './../../../assets/img/Rocket.gif'
 
-const Preloader = ({color})=> {
+const Preloader = (props)=> {
     return (
-        <div style={{background: color}}>
+        <div style={{background: "white"}}>
         <img src={loader} alt="loader"/>
     </div>
     )

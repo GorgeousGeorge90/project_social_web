@@ -1,6 +1,6 @@
 import styles from './ProfileInfo.module.scss'
-import Preloader from "../../common/Preloader/Preloader";
-import {useEffect, useState} from "react";
+import Preloader from '../../common/Preloader/Preloader';
+import {useState} from "react";
 
 
 const ProfileInfo = (props)=> {

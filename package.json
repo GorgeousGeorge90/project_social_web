@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "@altiore/form": "^4.3.4",
+    "@hookform/resolvers": "^2.9.8",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.3.0",
     "@testing-library/user-event": "^13.5.0",
@@ -19,6 +20,7 @@
     "react-switch": "^7.0.0",
     "redux": "^4.2.0",
     "redux-thunk": "^2.4.1",
+    "reselect": "^4.1.6",
     "web-vitals": "^2.1.4",
     "yup": "^0.32.11"
   },

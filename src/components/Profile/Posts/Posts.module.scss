@@ -6,10 +6,6 @@
 
 .main {
 
-    form{
-        display: flex;
-    }
-
     button {
         border: none;
         border-radius: 5px;
@@ -23,6 +19,18 @@
         height: 40px;
         resize: none;
         margin-left: 30px;
+    }
+
+    .field {
+        display: flex;
+    }
+
+    .errors {
+        font-family: fantasy;
+        font-weight: bolder;
+        height: 40px;
+        color: firebrick;
+        margin: 0 20px 0 20px;
     }
 
 }

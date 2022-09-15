@@ -1,0 +1,37 @@
+.content {
+  grid-area: content;
+  background-color: var(--content-bg-color);
+  border-radius: 10px;
+  text-align: center;
+
+  button {
+    margin: 20px 0 20px 0;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    background-color: var(--btn-bg-color);
+    font-weight: bolder;
+  }
+
+  .pic {
+    img {
+      height: 350px;
+      width: 500px;
+      border-radius: 10px;
+    }
+  }
+
+  .main {
+    font-family: 'Roboto Mono', monospace;
+
+    p {
+      padding: 10px 20px 0 20px;
+    }
+
+    span {
+      font-size: 1.1em;
+      font-weight: bolder;
+    }
+  }
+}

@@ -2,6 +2,8 @@ import styles from './Posts.module.scss'
 import Post from "./Post /Post";
 import {useForm} from 'react-hook-form';
 import {useEffect} from "react";
+import {PostsSchema} from "../../../helpers/validations/PostsValidations";
+import { yupResolver } from '@hookform/resolvers/yup';
 
 
 const Posts = (props)=>{
@@ -11,7 +13,7 @@ const Posts = (props)=>{
         localStorage.setItem('posts',JSON.stringify(posts))
     },[posts])
 
-    const { register, handleSubmit, reset, formState: {errors} } = useForm();
+    const { register, handleSubmit, reset, formState: {errors} } = useForm({resolver:yupResolver(PostsSchema)});
     const onSubmit = values => {
         addPost(values.post)
         reset()
@@ -21,15 +23,12 @@ const Posts = (props)=>{
                 <h3><span className={styles.title}>My Posts:</span></h3>
                 <div className={styles.main}>
                     <form onSubmit={handleSubmit(onSubmit)}>
-                        <textarea placeholder='Typing...' {...register('post',{
-                            required: 'This field is necessary!',
-                            minLength:{
-                                value:2,
-                                message: 'Minimal length is 2 symbols!',
-                            }
-                        })} />
-                        <button type='submit'>New post</button>
-                        <div style={{height: 40}}>
+                        <div className={styles.field}>
+                            <textarea placeholder='Typing...' {...register('post',
+                                )} />
+                            <button type='submit'>New post</button>
+                        </div>
+                        <div className={styles.errors}>
                             {errors?.post && <p>{errors?.post?.message || 'Error'}</p>}
                         </div>
                     </form>

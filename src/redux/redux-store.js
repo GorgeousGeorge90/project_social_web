@@ -4,7 +4,8 @@ import {profileReducer} from './profile/profileReducer';
 import {dialogsReducer} from './dialogs/dialogsReducer';
 import usersReducer from './users/usersReducer';
 import authReducer from './auth/authReducer';
-import ThunkMiddleWare from "redux-thunk";
+import ThunkMiddleWare from 'redux-thunk';
+import newsReducer from './news/newsReducer';
 
 
 let reducer = combineReducers({
@@ -12,6 +13,7 @@ let reducer = combineReducers({
     dialogsPage: dialogsReducer,
     usersPage: usersReducer,
     auth: authReducer,
+    newsPage:newsReducer,
 })
 
 export let store = createStore(reducer, applyMiddleware(ThunkMiddleWare))
