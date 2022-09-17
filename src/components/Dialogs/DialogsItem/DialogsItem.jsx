@@ -13,14 +13,15 @@ const DialogsItem = ({user})=> {
     const selected = useSelector(state=>getSelect(state))
     const dispatch = useDispatch()
 
+
     let selectPerson = id => {
         dispatch(getSelectUser(id))
-        localStorage.setItem('selected', JSON.stringify(id))
     }
 
     let unfollowPerson = id =>{
         dispatch(unfollowFriend(id))
     }
+
 
     return (
         <div className={styles.dialogs}>

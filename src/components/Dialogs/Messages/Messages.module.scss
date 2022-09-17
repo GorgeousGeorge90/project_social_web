@@ -1,0 +1,19 @@
+.content {
+    font-family: fantasy;
+    border:none;
+    background-color: var(--desc-bg-color);
+    height: 600px;
+    width: 300px;
+
+    .avatars {
+        display: flex;
+
+        img {
+            height: 50px;
+            width: 50px;
+            border: none;
+            border-radius: 25px;
+        }
+    }
+
+}

@@ -1,14 +1,21 @@
+import {getSelectedDialog} from "../../selectors/dialogs.selectors";
+import messages from "../../components/Dialogs/Messages/Messages";
+
 export const ADD_MESSAGE = 'dialogs/ADD MESSAGE';
 export const DELETE_MESSAGE = 'dialogs/DELETE MESSAGE';
 export const SET_FOLLOWERS = 'dialogs/SET FOLLOWERS';
 export const UNFOLLOW_USER = 'dialogs/UNFOLLOW USER';
-export const GET_SELECT = 'dialogs/GET SELECT'
+export const GET_SELECT = 'dialogs/GET SELECT';
+export const ADD_NEW_DIALOG = 'dialogs/ADD NEW DIALOG';
+export const DELETE_DIALOG = 'dialogs/DELETE DIALOG';
+export const DELETE_SELECTED = 'dialogs/DELETE_SELECTED';
+
 
 
 let initialState = {
         messages: [],
         dialogs: [],
-        selected: JSON.parse(localStorage.getItem('selected')) || null,
+        selected: null,
         newMessage: '',
 }
 
@@ -37,22 +44,56 @@ export const dialogsReducer = (state=initialState,action) => {
             }
         }
 
-
-        case ADD_MESSAGE: {
-            const newMessage = {
-                id: state.messages.length,
-                text: action.payload,
-            }
+        case DELETE_SELECTED: {
             return {
                 ...state,
-                messages: [...state.messages, newMessage]
+                selected:null,
             }
         }
 
-        case DELETE_MESSAGE: {
+
+        case ADD_MESSAGE: {
+            const newMessage = {
+                id: Date.now().toString(),
+                text: action.payload.message,
+            }
             return {
                 ...state,
-                messages: state.messages.filter(message => message.id !== action.payload)
+                messages: state.messages.map(dialog => {
+                    if (dialog.id === action.payload.id) {
+                        return {
+                            ...dialog,
+                            userDialog: [...dialog.userDialog, newMessage],
+                        }
+                    } else {
+                            return dialog
+                        }
+                    })
+            }
+        }
+
+        // case DELETE_MESSAGE: {
+        //     return {
+        //         ...state,
+        //         messages: state.messages.filter(message => message.id !== action.payload)
+        //     }
+        // }
+
+        case ADD_NEW_DIALOG: {
+            const newDialog = {
+                id: action.payload,
+                userDialog: [],
+            }
+            return {
+                ...state,
+                messages: [...state.messages, newDialog]
+                    }
+            }
+
+        case DELETE_DIALOG: {
+            return {
+                ...state,
+                messages: state.messages.filter(dialog=> dialog.id !== action.payload)
             }
         }
 
