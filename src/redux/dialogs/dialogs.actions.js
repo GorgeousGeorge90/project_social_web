@@ -12,7 +12,7 @@ import {setUnfollow} from "../users/users.actions";
 
 
 export const addMessage = (message, id) => ({type: ADD_MESSAGE, payload:{message, id}})
-export const deleteMessage = id => ({type: DELETE_MESSAGE, payload: id})
+export const deleteMessage = (dialogId, textId) => ({type: DELETE_MESSAGE, payload: {dialogId, textId}})
 export const setFollowers = users => ({type: SET_FOLLOWERS, payload: users})
 export const unfollowUser = id => ({type: UNFOLLOW_USER, payload: id})
 export const getSelectUser = id => ({type: GET_SELECT, payload: id})

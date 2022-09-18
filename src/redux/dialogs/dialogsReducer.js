@@ -72,12 +72,21 @@ export const dialogsReducer = (state=initialState,action) => {
             }
         }
 
-        // case DELETE_MESSAGE: {
-        //     return {
-        //         ...state,
-        //         messages: state.messages.filter(message => message.id !== action.payload)
-        //     }
-        // }
+        case DELETE_MESSAGE: {
+            return {
+                ...state,
+                messages: state.messages.map(dialog =>{
+                    if (dialog.id === action.payload.dialogId) {
+                        return {
+                            ...dialog,
+                            userDialog: dialog.userDialog.filter(message => message.id !== action.payload.textId)
+                        }
+                    } else {
+                        return dialog
+                    }
+                })
+            }
+        }
 
         case ADD_NEW_DIALOG: {
             const newDialog = {

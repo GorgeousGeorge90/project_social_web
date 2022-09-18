@@ -1,6 +1,6 @@
 import {FOLLOW, IS_FETCHING, SET_CURRENT_PAGE, SET_TOTAL_USERS, SET_USERS, UNFOLLOW} from './usersReducer';
 import {usersApi} from '../../api/api';
-import {addNewDialog, deleteDialog} from "../dialogs/dialogs.actions";
+import {deleteDialog} from "../dialogs/dialogs.actions";
 
 export const setUsers = users => ({type: SET_USERS, payload: users})
 export const setTotalUsers = totalCount => ({type: SET_TOTAL_USERS, payload: totalCount})
@@ -34,7 +34,6 @@ export const getFollowUser = userId=> {
        const response = await usersApi.follow(userId)
                 if (response.data.resultCode === 0) {
                     dispatch(setFollow(userId))
-                    dispatch(addNewDialog(userId))
                 } else {
                     console.log(response.data.messages)
                 }

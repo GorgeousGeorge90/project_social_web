@@ -1,12 +1,26 @@
+.attention {
+    font-family: fantasy;
+    font-weight: bolder;
+    font-size: 1.5em;
+}
+
 .content {
+    position: sticky;
+    top: 100px;
+    display: flex;
+    flex-direction: column;
     font-family: fantasy;
     border:none;
-    background-color: var(--desc-bg-color);
-    height: 600px;
-    width: 300px;
+    border-radius: 20px;
+    background: url("https://i.pinimg.com/564x/2b/67/74/2b677412dc432eb349c2c391a721361b.jpg");
+    height: 530px;
+    width: 480px;
+    margin: 20px 0 20px 0;
 
     .avatars {
+        padding: 20px 0 5px 0;
         display: flex;
+        justify-content: space-evenly;
 
         img {
             height: 50px;
@@ -14,6 +28,77 @@
             border: none;
             border-radius: 25px;
         }
+
+        .person, .me {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            span {
+                margin-top: 2px;
+                border: none;
+                border-radius: 5px;
+                padding: 1px;
+                background-color: var(--desc-bg-color);
+            }
+        }
+    }
+
+    .talk {
+        overflow-y: auto;
+        height: 400px;
+    }
+
+    .message {
+        margin: 20px 20px 0 0;
+        text-align: right;
+
+        span {
+            padding-left: 10px;
+        }
+
+        .text {
+            border: none;
+            border-radius: 5px;
+            padding: 5px;
+            background-color: var(--desc-bg-color);
+
+        }
+    }
+
+    .form {
+        display: flex;
+        flex-grow: 1;
+        justify-content: center;
+
+        form {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        textarea {
+            height: 40px;
+            width: 400px;
+            resize: none;
+            border: none;
+            border-radius: 10px;
+            background-color: var(--desc-bg-color);
+        }
+
+       button {
+           margin-top: 10px;
+           font-weight: bolder;
+           height: 20px;
+           width: 200px;
+           border-radius: 10px;
+           color: white;
+           background-color: var(--btn-bg-color);
+       }
+
+
     }
 
 }

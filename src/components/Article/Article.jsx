@@ -1,6 +1,5 @@
 import {useNavigate, useParams} from 'react-router-dom';
 import {useEffect} from 'react';
-import {newsApi} from '../../api/api';
 import {useDispatch, useSelector} from 'react-redux';
 import {getFetching, getSingleData, getSingleNews} from '../../redux/news/news.actions';
 import {getIsFetching, getSingle} from '../../selectors/news.selectors';
@@ -15,14 +14,14 @@ const Article = ()=>{
 
     useEffect(()=> {
        dispatch(getSingleData(id))
-    },[])
+    },[id])
 
     const article = useSelector(state=>getSingle(state))
     const isFetching = useSelector(state=>getIsFetching(state))
     const navigate = useNavigate()
 
 
-    if (isFetching) {
+    if (!article || isFetching) {
         return <Preloader/>
     }
 

@@ -3,16 +3,15 @@ import Messages from './Messages/Messages';
 import DialogsItem from './DialogsItem/DialogsItem'
 import {useDispatch, useSelector} from "react-redux";
 import {useNavigate} from 'react-router-dom'
-import {Form, isRequired} from '@altiore/form'
-import {Field} from "../common/AltiorFrom/AltiorFrom";
 import {useEffect} from "react";
 import {getIsAuth} from "../../selectors/auth.selectors";
-import {getDialogs, getFollowUsers, getSelect} from "../../selectors/dialogs.selectors";
+import {getDialogs, getFollowUsers} from "../../selectors/dialogs.selectors";
 import {
-    addMessage,
+    addNewDialog,
     deleteSelected,
     setFollowers
 } from "../../redux/dialogs/dialogs.actions";
+
 
 
 
@@ -21,7 +20,6 @@ const Dialogs = ()=> {
     const isAuth = useSelector(state=>getIsAuth(state))
     const followers = useSelector(state=>getFollowUsers(state))
     const dialogs = useSelector(state=>getDialogs(state))
-    const selected = useSelector(state=>getSelect(state))
     const dispatch = useDispatch()
     const navigate = useNavigate()
 
@@ -37,23 +35,12 @@ const Dialogs = ()=> {
             navigate('/users')
         } else {
             dispatch(setFollowers(followers))
+            followers.forEach(follower=>{
+                dispatch(addNewDialog(follower.id))
+            })
         }
     },[followers])
 
-
-
-    const testFunc = selected=>{
-        return values => {
-            dispatch(addMessage(values.message,selected))
-        }
-    }
-
-    const pushIt = testFunc(selected)
-
-
-    const handleSubmit =  values => {
-            pushIt(values)
-    }
 
 
     return (
@@ -63,15 +50,8 @@ const Dialogs = ()=> {
                     dialogs.map(user => <DialogsItem user={user}/>)
                 }
             </div>
-            <div className={styles.messeges}>
+            <div className={styles.messages}>
                 <Messages/>
-                {
-                    selected ?
-                    <Form onSubmit={handleSubmit}>
-                        <Field name={"message"} validate={isRequired()}/>
-                        <button type={"submit"}>Send</button>
-                    </Form>: null
-                }
             </div>
         </div>
     )
