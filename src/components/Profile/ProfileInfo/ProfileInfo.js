@@ -1,27 +1,25 @@
 import styles from './ProfileInfo.module.scss'
 import Preloader from '../../common/Preloader/Preloader';
-import {useState} from "react";
+import {useState} from 'react';
 
 
-const ProfileInfo = (props)=> {
-
+const ProfileInfo = ({profile,saveNewPhoto})=> {
 
     const [editMode, setEditMode] = useState(false)
 
-    if(!props.profile) {
+    if(!profile) {
         return <Preloader/>
     }
 
-    const  {fullName, contacts, userId, photos } = props.profile
-    const {saveNewPhoto} = props
+    const  {fullName, contacts, userId, photos } = profile
 
     const activeMode = ()=> {
         setEditMode(true)
     }
 
-    const changePhoto = (e)=> {
-        if (e.target.files.length) {
-             saveNewPhoto(e.target.files[0])
+    const changePhoto = (event)=> {
+        if (event.target.files.length) {
+             saveNewPhoto(event.target.files[0])
              setEditMode(false)
         }
     }
@@ -36,7 +34,7 @@ const ProfileInfo = (props)=> {
                 {editMode &&
                     <input onChange={changePhoto}  type='file'/>
                 }
-                {!photos ? <Preloader color={'black'}/> : <img  src={photos.large} />}
+                {!photos ? <Preloader color={'black'}/> : <img  src={photos.large} alt={'logo'} />}
             </div>
             <div className={styles.description}>
                 <p>UserId: <span>{userId}</span></p>

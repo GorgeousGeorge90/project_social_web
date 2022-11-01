@@ -2,22 +2,30 @@ import styles from './Messages.module.scss';
 import {useDispatch, useSelector} from 'react-redux';
 import {getSelect, getSelectedDialog, getSelectedUser} from '../../../selectors/dialogs.selectors';
 import {getProfile} from '../../../selectors/profile.selectors';
-import Preloader from '../../common/Preloader/Preloader';
 import users_ava from '../../../assets/img/users_ava.png';
 import {useForm} from 'react-hook-form';
 import {addMessage, deleteMessage} from '../../../redux/dialogs/dialogs.actions';
+import {yupResolver} from '@hookform/resolvers/yup';
+import {MessagesValidation} from '../../../helpers/validations/MessagesValidation';
+
 
 
 const Messages = ()=> {
-    const dialogs = useSelector(state=>getSelectedDialog(state))
+    const dialog = useSelector(state=>getSelectedDialog(state))
     const [user] = useSelector(state=>getSelectedUser(state))
     const profile = useSelector(state=>getProfile(state))
     const selected = useSelector(state=>getSelect(state))
     const dispatch = useDispatch()
-    const { register, handleSubmit, reset, formState: {errors} } = useForm()
-    if (profile === null ) return <Preloader/>
-    if (!selected) return  <div className={styles.attention}>{`You haven't any conversation, yet!`}</div>
-    const [dialog] = dialogs
+
+    const { register, handleSubmit, reset, formState: {errors} } = useForm( {
+        resolver: yupResolver(MessagesValidation),
+    })
+
+    if (!selected) return (
+        <div className={styles.attention}>
+            <img src='https://www.meme-arsenal.com/memes/a72a53c59f3a212c9210d7ffbc9fab9c.jpg' alt="sad"/>
+            <p>{`No conversation!`}</p>
+        </div>)
 
 
     const dataPack = selected =>{
@@ -30,6 +38,11 @@ const Messages = ()=> {
     const onSubmit =  data => {
         selectedData(data)
         reset()
+    }
+
+    const errorsStyle = {
+        color: 'red',
+        fontWeight: 'bolder',
     }
 
     return (
@@ -45,20 +58,23 @@ const Messages = ()=> {
                 </div>
             </div>
             <div className={styles.talk}>
-                  {
-                    dialog.userDialog.map(message=> {
+                {
+                    dialog.userDialog.map(message => {
                         return (
-                                <div className={styles.message}>
+                            <div className={styles.message}>
                                    <span className={styles.text}>
                                         {message.text}
-                                        <span onClick={()=>dispatch(deleteMessage(selected,message.id))}>&#128163;</span>
+                                       <span onClick={() => {
+                                           dispatch(deleteMessage(selected, message.id))
+                                       }}>&#128163;</span>
                                    </span>
-                               </div>)
+                            </div>)
                     })
-                  }
+                }
             </div>
             <div className={styles.form}>
                 <form onSubmit={handleSubmit(onSubmit)}>
+                    {errors.message ? <span style={errorsStyle}>{errors.message.message}</span>: null}
                     <textarea placeholder='Write a message...' {...register('message')}/>
                     <button type={"submit"}>Send</button>
                 </form>

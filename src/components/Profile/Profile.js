@@ -15,7 +15,6 @@ const Profile = (props) => {
 
     const isAuth = useSelector(state=>getIsAuth(state))
     const navigate = useNavigate()
-
     const {userId} = useParams()
 
     useEffect(()=>{
@@ -25,6 +24,7 @@ const Profile = (props) => {
     },[isAuth])
 
     if (props.profile === null) return <Preloader/>
+
     return (
         <div className={styles.content}>
             <ProfileInfo {...props}/>

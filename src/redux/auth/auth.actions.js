@@ -26,11 +26,22 @@ export const loginUser = (email, login, rememberMe) => {
     }
 }
 
-export const logoutUser = () => {
-    return async dispatch => {
-        const response = await authApi.logout()
-                if (response.data.resulCode === 0 ) {
-                    dispatch(setUser(null,null,null,false))
+// export const logoutUser = (id,email,login,isAuth) => {
+//     return async dispatch => {
+//         const response = await authApi.logout()
+//                 if (response.data.resulCode === 0 ) {
+//                     dispatch(setUser(id,email,login,isAuth))
+//                 }
+//     }
+// }
+
+export const logoutUser = (id,email,login,isAuth) => {
+    return dispatch => {
+        authApi.logout()
+            .then(response => {
+                if (response.data.resulCode === 0) {
+                    dispatch(setUser(id, email, login, isAuth))
                 }
+            })
     }
 }

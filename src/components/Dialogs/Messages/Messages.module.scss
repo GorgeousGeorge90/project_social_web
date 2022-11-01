@@ -1,7 +1,29 @@
 .attention {
-    font-family: fantasy;
-    font-weight: bolder;
-    font-size: 1.5em;
+    display: flex;
+    flex-direction: column;
+    margin-top: 40px;
+
+    p, img {
+        position: sticky;
+    }
+
+    p {
+        font-family: fantasy;
+        font-weight: bolder;
+        font-size: 1.5em;
+        text-align: center;
+        top:540px;
+
+
+    }
+
+    img {
+        height: 420px;
+        width: 420px;
+        border: none;
+        border-radius: 40px;
+        top: 100px;
+    }
 }
 
 .content {

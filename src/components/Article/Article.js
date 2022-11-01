@@ -1,7 +1,7 @@
 import {useNavigate, useParams} from 'react-router-dom';
 import {useEffect} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
-import {getFetching, getSingleData, getSingleNews} from '../../redux/news/news.actions';
+import {getSingleData} from '../../redux/news/news.actions';
 import {getIsFetching, getSingle} from '../../selectors/news.selectors';
 import styles from './Article.module.scss';
 import Preloader from "../common/Preloader/Preloader";

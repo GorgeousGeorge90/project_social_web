@@ -4,15 +4,14 @@ import {addLike, deletePost} from '../../../../redux/profile/profile.actions';
 import users_ava from './../../../../assets/img/users_ava.png'
 
 
-const Post = (props)=> {
-    const post = props.post
+const Post = ({post, profile})=> {
     const {id} = post
     const dispatch = useDispatch()
 
 
     return (<div className={styles.post}>
         <div className={styles.avatar}>
-            {props.profile.photos.small ? <img src={props.profile.photos.small} alt="avatar"/> :
+            {profile.photos.small ? <img src={profile.photos.small} alt="avatar"/> :
                 <img src={users_ava} alt="avatar"/>}
         </div>
         <div className={styles.text}>

@@ -12,7 +12,7 @@ import {
 import Profile from './Profile';
 import {useParams} from 'react-router-dom';
 import {useEffect} from 'react';
-import {getIsFetchingProfile, getPosts, getProfile, getStatus} from "../../selectors/profile.selectors";
+import {getIsFetchingProfile, getPosts, getProfile, getStatus} from '../../selectors/profile.selectors';
 
 
 

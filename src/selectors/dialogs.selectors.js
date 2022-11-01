@@ -12,7 +12,11 @@ export const getSelectedDialog = createSelector(
         getMessages,
     ],
     (selected,messages)=>{
-        return  messages.filter(dialog=> dialog.id === selected)
+        if (selected) {
+           return  messages.filter(message => message.id === selected)[0]
+        } else {
+            return null
+        }
     }
 )
 

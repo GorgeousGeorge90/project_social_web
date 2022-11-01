@@ -13,7 +13,10 @@ const authReducer = (state=initialState,action) => {
         case SET_USER: {
             return {
                 ...state,
-                ...action.payload,
+                id: action.payload.id,
+                email: action.payload.email,
+                login: action.payload.login,
+                isAuth: action.payload.isAuth,
             }
         }
 

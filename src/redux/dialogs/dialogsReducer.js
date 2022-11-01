@@ -1,6 +1,3 @@
-import {getSelectedDialog} from "../../selectors/dialogs.selectors";
-import messages from "../../components/Dialogs/Messages/Messages";
-
 export const ADD_MESSAGE = 'dialogs/ADD MESSAGE';
 export const DELETE_MESSAGE = 'dialogs/DELETE MESSAGE';
 export const SET_FOLLOWERS = 'dialogs/SET FOLLOWERS';
@@ -8,7 +5,9 @@ export const UNFOLLOW_USER = 'dialogs/UNFOLLOW USER';
 export const GET_SELECT = 'dialogs/GET SELECT';
 export const ADD_NEW_DIALOG = 'dialogs/ADD NEW DIALOG';
 export const DELETE_DIALOG = 'dialogs/DELETE DIALOG';
-export const DELETE_SELECTED = 'dialogs/DELETE_SELECTED';
+export const DELETE_SELECTED = 'dialogs/DELETE SELECTED';
+export const SET_DIALOG ='dialogs/SET DIALOG';
+export const SET_MESSAGES ='dialogs/SET MESSAGES'
 
 
 
@@ -91,19 +90,36 @@ export const dialogsReducer = (state=initialState,action) => {
         case ADD_NEW_DIALOG: {
             const newDialog = {
                 id: action.payload,
-                userDialog: [],
+                userDialog: []
             }
+
             return {
                 ...state,
-                messages: [...state.messages, newDialog]
+                messages: [...state.messages, newDialog],
                     }
             }
+
+        // case SET_DIALOG: {
+        //     return {
+        //         ...state,
+        //         messages: localStorage.getItem(`${action.payload}`) || []
+        //     }
+        // }
+
 
         case DELETE_DIALOG: {
             return {
                 ...state,
                 messages: state.messages.filter(dialog=> dialog.id !== action.payload)
             }
+        }
+
+        case SET_MESSAGES: {
+            return {
+                ...state,
+                messages: [...state.messages, action.payload]
+            }
+
         }
 
 

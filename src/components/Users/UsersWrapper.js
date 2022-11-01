@@ -20,6 +20,7 @@ import {
     getPortionSize,
     getTotalCount
 } from "../../selectors/users.selectors";
+import {getSelect} from "../../selectors/dialogs.selectors";
 
 
 
@@ -52,6 +53,7 @@ let mapStateToProps = state => ({
     currentPage: getCurrentPage(state),
     isFetching: getIsFetching(state),
     portionSize: getPortionSize(state),
+    selected: getSelect(state),
 })
 
 

@@ -1,19 +1,19 @@
 import styles from './Posts.module.scss'
-import Post from "./Post /Post";
+import Post from './Post /Post';
 import {useForm} from 'react-hook-form';
-import {useEffect} from "react";
-import {PostsSchema} from "../../../helpers/validations/PostsValidations";
+import {useEffect} from 'react';
+import {PostsSchema} from '../../../helpers/validations/PostsValidations';
 import { yupResolver } from '@hookform/resolvers/yup';
 
 
-const Posts = (props)=>{
-    const {posts, addPost} = props
+const Posts = ({posts, addPost, ...args})=>{
 
     useEffect(()=> {
         localStorage.setItem('posts',JSON.stringify(posts))
     },[posts])
 
-    const { register, handleSubmit, reset, formState: {errors} } = useForm({resolver:yupResolver(PostsSchema)});
+    const { register, handleSubmit, reset, formState: {errors} } = useForm({
+        resolver:yupResolver(PostsSchema)});
     const onSubmit = values => {
         addPost(values.post)
         reset()
@@ -35,7 +35,7 @@ const Posts = (props)=>{
                 </div>
             <div className={styles.posts}>
                 {
-                    posts ? posts.map(post => <Post {...props} post={post}/>) :
+                    posts ? posts.map(post => <Post key={post.id} {...args} post={post}/>) :
                     <p>No posts, yet</p>
                 }
             </div>

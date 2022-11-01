@@ -2,9 +2,8 @@ import  styles from './DialogsItem.module.scss';
 import  users_ava from './../../../assets/img/users_ava.png';
 import {useDispatch, useSelector} from 'react-redux';
 import {getSelect} from '../../../selectors/dialogs.selectors';
-import {getSelectUser, unfollowFriend} from '../../../redux/dialogs/dialogs.actions';
-
-
+import {deleteSelected, getSelectUser} from '../../../redux/dialogs/dialogs.actions';
+import {getUnfollowUser} from '../../../redux/users/users.actions';
 
 
 
@@ -18,8 +17,8 @@ const DialogsItem = ({user})=> {
         dispatch(getSelectUser(id))
     }
 
-    let unfollowPerson = id =>{
-        dispatch(unfollowFriend(id))
+    let unfollowPerson = (id, selected) =>{
+        dispatch(getUnfollowUser(id, selected))
     }
 
 
@@ -29,8 +28,15 @@ const DialogsItem = ({user})=> {
                 {user.photos.large !== null ? <img src={user.photos.large} alt='ava'/>:
                                 <img src={users_ava} alt='ava'/>}
             </div>
-            <p>{user.name}</p>
-            <span onClick={()=>unfollowPerson(user.id)}>&#128075;</span>
+            <p className={styles.name}>{user.name}</p>
+            <p>
+                <span onClick={()=>unfollowPerson(user.id, selected)}>&#128075;</span>
+                <span onClick={()=>{
+                    if (selected === user.id) {
+                        dispatch(deleteSelected())
+                    }
+                }}>&#129305;</span>
+            </p>
         </div>
     )
 }
