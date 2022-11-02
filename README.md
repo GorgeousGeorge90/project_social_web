@@ -2,7 +2,7 @@
 
 ***
 
-![logo](src/assets/img/rocket1.svg)
+<img src='src/assets/img/rocket1.svg' width="300" height="300">
 
 ***
 
