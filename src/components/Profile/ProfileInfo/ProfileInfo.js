@@ -1,6 +1,7 @@
 import styles from './ProfileInfo.module.scss'
 import Preloader from '../../common/Preloader/Preloader';
 import {useState} from 'react';
+import avatar from './../../../assets/img/users_ava.png';
 
 
 const ProfileInfo = ({profile,saveNewPhoto})=> {
@@ -34,7 +35,7 @@ const ProfileInfo = ({profile,saveNewPhoto})=> {
                 {editMode &&
                     <input onChange={changePhoto}  type='file'/>
                 }
-                {!photos ? <Preloader color={'black'}/> : <img  src={photos.large} alt={'logo'} />}
+                {!photos ? <Preloader/> : <img  src={photos.large ?  photos.large: avatar} alt={'logo'} />}
             </div>
             <div className={styles.description}>
                 <p>UserId: <span>{userId}</span></p>

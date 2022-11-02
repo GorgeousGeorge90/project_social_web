@@ -2,4 +2,10 @@
     background-color: var(--content-bg-color);
     grid-area: content;
     border-radius: 10px;
+
+    img {
+        height: 200px;
+        width: 200px;
+        padding: 20px 50px;
+    }
 }

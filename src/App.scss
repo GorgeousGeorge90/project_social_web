@@ -11,7 +11,7 @@
   margin: 0 auto;
 
   &.dark {
-    --main-bg-color: darkgrey;
+    --main-bg-color: #0B0C10;
     --content-bg-color: #E6E6FA;
     --desc-bg-color: #F5FFFA;
     --btn-bg-color:grey;
@@ -20,11 +20,11 @@
   }
 
   &.light {
-    --main-bg-color: grey;
+    --main-bg-color:#C5C6C7;
     --content-bg-color: #FAF0E6;
-    --desc-bg-color:#C0C0C0;
-    --btn-bg-color:darkgrey;
-    --about-color:#663399;
+    --desc-bg-color: #F5FFFA;
+    --btn-bg-color:#0B0C10;
+    --about-color:#000080;
     --hover-color:#7FFFD4;
   }
 

@@ -2,7 +2,7 @@
 
 ***
 
-<img src="src/assets/img/rocket1.svg" width="300" height="300"/>
+![logo](src/assets/img/rocket1.svg)
 
 ***
 
@@ -34,7 +34,9 @@ It has many interesting options:
 
 ### Contacts 
 
-Feedback on:`doroshinegorm@gmail.com`;
+Feedback on:`doroshinegorm@gmail.com`; <br>
+Deployed on:https://social-web-project-34674.web.app
+
 
 
 

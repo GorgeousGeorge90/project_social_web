@@ -1,4 +1,4 @@
-import styles from './Profile.module.css'
+import styles from './Profile.module.scss'
 import Posts from './Posts/Posts';
 import ProfileInfo from './ProfileInfo/ProfileInfo';
 import {useSelector} from 'react-redux';
@@ -6,7 +6,7 @@ import {useNavigate, useParams} from 'react-router-dom';
 import {useEffect} from 'react';
 import Preloader from '../common/Preloader/Preloader';
 import ProfileStatus from './ProfileStatus/ProfileStatus';
-import logo from './../../assets/img/logo.png'
+import logo from './../../assets/img/rocket1.svg';
 import {getIsAuth} from '../../selectors/auth.selectors';
 
 
